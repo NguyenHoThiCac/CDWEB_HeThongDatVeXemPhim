@@ -170,7 +170,7 @@ a.book:hover, a.video:hover {
 
 i.book1 {
     width: 40px;
-    height: 35px;
+    height: 25px;
     background: url('../images/img-sprite.png') no-repeat -300px -87px;
     display: inline-block;
     vertical-align: middle;
@@ -215,6 +215,12 @@ i.home {
     width: 60px;
     height: 60px;
     background: url('../images/img-sprite.png') no-repeat 0px 0px;
+    display: block;
+}
+i.popcorn {
+    width: 60px;
+    height: 60px;
+    background: url('../images/popcorn.png') no-repeat 0px 0px;
     display: block;
 }
 
@@ -311,7 +317,7 @@ i.watching1 {
 i.booking {
     width: 60px;
     height: 60px;
-    background: url('../images/img-sprite.png') no-repeat -180px 0px;
+    background: url('../images/img-sprite.png') no-repeat -180px -60px;
     display: block;
 }
 
@@ -422,6 +428,95 @@ i.contact1 {
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
 }
+
+/*cart*/
+/* CSS cho phần giỏ hàng */
+.cart {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.cart-icon {
+    background: url('../images/cart.png') no-repeat 0px 0px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    float: right;
+    top: 12px;
+    right: 510px;
+    width: 50px;
+    height: 50px;
+}
+
+.cart-badge {
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    padding: 4px 8px;
+    border-radius: 50%;
+    vertical-align: top;
+    margin-left: 35px;
+}
+
+.cart-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.cart-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.cart-item-name {
+    font-weight: bold;
+}
+
+.cart-item-price {
+    margin-left: auto;
+}
+
+.cart-total {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cart-checkout {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cart-checkout button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-checkout button:hover {
+    background-color: #45a049;
+}
+
+
 
 /*--start-search--*/
 .search {
@@ -959,6 +1054,35 @@ p.info {
     padding: 0;
     text-transform: uppercase;
     margin-top: 0.4em;
+}
+.menu1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.food {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ddd;
+}
+
+.food img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.food h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.food p {
+    margin: 0;
 }
 
 .error-404 p {
@@ -2256,8 +2380,8 @@ a.b-home:hover {
     }
 
     i.book1 {
-        width: 30px;
-        height: 25px;
+        width: 10px;
+        height: 10px;
         background: url('../images/img-sprite.png') no-repeat -219px -63px;
         margin-right: 5px;
         background-size: 268px;
@@ -2517,6 +2641,7 @@ a.b-home:hover {
         background-size: 266px;
     }
 
+
     i.home2 {
         width: 45px;
         height: 45px;
@@ -2559,6 +2684,12 @@ a.b-home:hover {
         background-size: 266px;
     }
 
+    i.popcorn {
+        width: 45px;
+        height: 45px;
+        background: url('../images/popcorn.png') no-repeat -131px 0px;
+        background-size: 266px;
+    }
     i.booking1 {
         width: 45px;
         height: 45px;
@@ -2715,6 +2846,14 @@ a.b-home:hover {
         font-weight: 400;
     }
 
+    .main-contact form input[type="email"], .main-contact form textarea {
+        padding: 7px 11px;
+        border: 1px solid #000;
+        font-size: 1em;
+        margin-bottom: 1em;
+        font-weight: 400;
+    }
+
     .contact_info h3 {
         font-size: 1.7em;
     }
@@ -2748,4 +2887,34 @@ a.b-home:hover {
         height: 156px;
         overflow: hidden;
     }
+}
+
+.ui-autocomplete {
+    margin-top: 6px;
+    list-style-type: none;
+    padding: 8px 10px;
+    width: 18%;
+    float: right;
+    border: 1px solid #f0f0f0;
+    background-color: #fff;
+
+}
+
+.ui-autocomplete li {
+    font-family: Arial, Verdana, Sans-Serif;
+    cursor: pointer;
+    display: block;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.428571429;
+}
+
+
+.ui-autocomplete .ui-state-focus {
+    background-color: #66afe9;
+}
+
+
+.ui-helper-hidden-accessible {
+    display: none;
 }

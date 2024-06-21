@@ -5,7 +5,7 @@
     <!-- My JavaScript -->
     <script src="../../../static/js/admin.js"></script>
     <!-- /My JavaScript -->
-    <link rel="stylesheet" href="../../../static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../../static/css/admin/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../../../static/css/admin/admin.css" type="text/css" media="all">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
 
@@ -57,6 +57,13 @@
                 delete data["undefined"];
             });
 
+            if (data["isShowing"] == "Availible") {
+                data["isShowing"] = 1;
+            } else {
+                data["isShowing"] = 0;
+            }
+
+
             data["duration"] = parseInt(data["duration"]);
             data["movieId"] = parseInt(data["movieId"]);
 
@@ -72,6 +79,7 @@
                 }
             });
         });
+
     </script>
 
     <title>Manage Movies :: Admin</title>
@@ -85,8 +93,8 @@
                 <%--                <div class="col-md-3">--%>
                 <%--                    <%@ include file ="admin-profile.jsp" %>--%>
                 <%--                </div>--%>
-                <div class="col-md-9">
-                    <div class="col-md-9">
+                <div class="col-md-12">
+                    <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12">
                                 <nav class="navbar navbar-light navbar-toggleable">
@@ -231,7 +239,7 @@
                                             <form id="updateForm" method="PUT" onsubmit="return false"
                                                   action="${pageContext.request.contextPath}/api/updateMovie/">
                                                 <td>
-                                                    <input class="form-control" name="movieId" type="text"
+                                                    <input class="form-control" name="movieId" type="text" disabled
                                                            value="${mov.id}"/>
                                                 </td>
                                                 <td><input name="name" class="form-control" type="text"
@@ -266,10 +274,10 @@
                                                            value="${mov.actors}"/></td>
                                                 <c:choose>
                                                     <c:when test="${mov.isShowing == 1 }">
-                                                        <td><input class="form-control" value="Availible"/></td>
+                                                        <td><input name ="isShowing" class="form-control" value="Availible"/></td>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <td><input class="form-control" value="Unavailible"/></td>
+                                                        <td><input name ="isShowing" class="form-control" value="Unavailible"/></td>
                                                     </c:otherwise>
                                                 </c:choose>
                                                 <td>

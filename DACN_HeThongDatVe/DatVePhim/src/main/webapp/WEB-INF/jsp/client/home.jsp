@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <html>
 <head>
     <link href="../../../static/css/bootstrap.css" rel='stylesheet' type='text/css'/>
@@ -11,6 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="Cinema Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+
     <script type="application/x-javascript"> addEventListener("load", function () {
         setTimeout(hideURLbar, 0);
     }, false);
@@ -73,11 +75,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
-    <script type="text/javascript" src="../../../static/js/jquery.flexisel.js"></script>
 
     <!--webfont-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
           rel='stylesheet' type='text/css'/>
+
 
     <title>Movie Ticket and Service Website | Home</title>
 
@@ -87,6 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="full">
     <jsp:include page="menu.jsp"/>
     <div class="main">
+
         <div class="header">
             <jsp:include page="header.jsp"/>
             <div class="header-info">
@@ -104,12 +107,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="more-reviews">
             <ul id="flexiselDemo2">
-                <li onclick="location.href='movie-detail'"><img src="../../../static/images/m1.jpg" alt=""/></li>
-                <li><img src="../../../static/images/m2.jpg" alt=""/></li>
-                <li><img src="../../../static/images/m3.jpg" alt=""/></li>
-                <li><img src="../../../static/images/m4.jpg" alt=""/></li>
+                <c:forEach var="movie" begin="0" end="5" items="${movies}">
+                    <li onclick="location.href='movie-detail/${movie.id}'"><img src="${movie.largeImageURL}" alt=""/>
+                    </li>
+                </c:forEach>
             </ul>
-
         </div>
         <jsp:include page="footer.jsp"/>
 

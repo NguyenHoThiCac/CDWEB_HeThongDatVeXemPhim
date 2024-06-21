@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/admin/style.css">
+    <link rel="stylesheet" href="../../../static/css/admin/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/css/admin/style.css">
     <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
 
     <title>Login :: Bookmymovie.com</title>
@@ -26,15 +26,17 @@
             <div class="login-panel">
                 <h1>Admin</h1>
                 <br>
-                <form action="performLogin" method="post">
+                <form action="/api/login" method="post">
                     <div class="form-group">
                         <label>Username</label>
-                        <input name="Username" id="email" class="form-control">
+                        <input name="username" id="email" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" name="Password" id="password" class="form-control">
+                        <input type="password" name="password" id="password" class="form-control">
                     </div>
+                    <p style="color: red">${errorMsg}</p>
+                    <p style="color: red">${successMsg}</p>
                     <input type="submit" value="Login" class="btn cust-btn form-control">
                 </form>
             </div>
