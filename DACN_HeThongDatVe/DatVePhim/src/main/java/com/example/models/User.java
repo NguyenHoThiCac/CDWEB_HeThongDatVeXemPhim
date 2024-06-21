@@ -1,6 +1,5 @@
 package com.example.models;
 
-import com.example.dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
@@ -17,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @DynamicInsert
-public class User extends UserDTO {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

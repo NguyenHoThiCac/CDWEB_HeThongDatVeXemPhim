@@ -133,7 +133,7 @@ public class UserService {
             user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
             user.setUsername(userDTO.getUsername());
             user.setAddress(userDTO.getAddress());
-            user.setBirthday(userDTO.getBirthday());
+            user.setBirthday(LocalDate.parse(userDTO.getBirthday()));
             user.setEmail(userDTO.getEmail());
 
             // vai trò không thể thay đổi (USER sẽ được thêm từ register/Admim được thêm từ api/addUser)
@@ -163,7 +163,7 @@ public class UserService {
         String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
         user.setPassword(encodedPassword);
         user.setUsername(userDTO.getUsername());
-        user.setBirthday(userDTO.getBirthday());
+        user.setBirthday(LocalDate.parse(userDTO.getBirthday()));
         user.setAddress(userDTO.getAddress());
         user.setEmail(userDTO.getEmail());
         List<Role> roles = new ArrayList<>();
@@ -192,13 +192,13 @@ public class UserService {
         return true;
     }
 
-    public UserDTO getUserById(Integer id) {
-        Optional<User> optionalUser = userRepository.findById(id);
-        UserDTO userDTO = optionalUser.get();
-        return userDTO;
-    }
 
     public boolean checkEmail(String email) {
         return userRepository.findByEmail(email) == null;
+    }
+
+    public User getUserById(Integer id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+        return optionalUser.get();
     }
 }

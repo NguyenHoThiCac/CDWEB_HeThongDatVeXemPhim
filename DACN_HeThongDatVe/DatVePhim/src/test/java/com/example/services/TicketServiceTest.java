@@ -90,7 +90,7 @@ class TicketServiceTest {
         ticket.setId(1);
         ticket.setSeating("Old Seating");
         ticket.setTotal(10.0);
-        ticket.setUser(new  UserService().getUserByUsername("Old Username"));
+        ticket.setUser(new UserService().getUserByUsername("Old Username"));
         ticket.setSchedule(schedule);
 
         when(ticketRepository.getReferenceById(1)).thenReturn(ticket);

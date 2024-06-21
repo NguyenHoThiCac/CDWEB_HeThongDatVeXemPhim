@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +18,10 @@ public class UserDTO {
     @NotEmpty(message = "Password should not be empty")
     private String password;
     private String username;
-    private LocalDate birthday;
+    private String birthday;
     private String address;
     @NotEmpty(message = "Email should not be empty")
     @Email
     private String email;
-    private List<Role> roles;
+    private String roles;
 }

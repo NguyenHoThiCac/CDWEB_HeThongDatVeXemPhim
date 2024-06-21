@@ -41,7 +41,7 @@ public class UserServiceTest {
         when(userRepository.findByEmail("test@example.com")).thenReturn(null);
         when(roleRepository.findByName("USER")).thenReturn(new Role());
 
-        boolean result = userService.registerUser("testuser", "password", "test@example.com", "Test User", null, "a");
+        boolean result = userService.registerUser("testuser", "password", "test@example.com", "Test User", null, null);
         assertTrue(result);
 
         verify(userRepository).save(any(User.class));
@@ -156,7 +156,7 @@ public class UserServiceTest {
         userDTO.setPassword("updatedpassword");
         userDTO.setEmail("updated@example.com");
         userDTO.setFullName("Updated User");
-        userDTO.setRoles(new ArrayList<>()); // Set the roles field to an empty list
+        userDTO.setRoles(String.valueOf(new ArrayList<>())); // Set the roles field to an empty list
 
         boolean result = userService.updateUser(userDTO, 1);
         assertTrue(result);
@@ -194,7 +194,7 @@ public class UserServiceTest {
 
         when(userRepository.findById(1)).thenReturn(Optional.of(user));
 
-        UserDTO result = userService.getUserById(1);
+        User result = userService.getUserById(1);
         assertEquals(user.getUsername(), result.getUsername());
     }
 
